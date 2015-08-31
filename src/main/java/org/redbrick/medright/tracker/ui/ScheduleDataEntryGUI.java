@@ -6,6 +6,16 @@
 package org.redbrick.medright.tracker.ui;
 
 import javax.persistence.*;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JButton;
+import org.jdesktop.beansbinding.BeanProperty;
+import javax.swing.JPanel;
+import org.jdesktop.beansbinding.AutoBinding;
+import org.jdesktop.beansbinding.Bindings;
+import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
+import java.awt.Dimension;
 
 /**
  *
@@ -23,6 +33,12 @@ public class ScheduleDataEntryGUI extends javax.swing.JFrame {
 	 * Creates new form ScheduleDataEntry
 	 */
 	public ScheduleDataEntryGUI() {
+		setPreferredSize(new Dimension(700, 469));
+		setMaximumSize(new Dimension(700, 469));
+		setMinimumSize(new Dimension(700, 469));
+		getContentPane().setMinimumSize(new Dimension(695, 469));
+		setSize(new Dimension(700, 469));
+		getContentPane().setMaximumSize(new Dimension(695, 469));
 		this.initComponents();
 	}
 
@@ -58,15 +74,11 @@ public class ScheduleDataEntryGUI extends javax.swing.JFrame {
 		jlDose = new javax.swing.JLabel();
 		jcbMeasure = new javax.swing.JComboBox();
 		Reminders = new javax.swing.JCheckBox();
-		Next = new javax.swing.JButton();
-		Save = new javax.swing.JButton();
-		Help = new javax.swing.JButton();
 		jftfName = new javax.swing.JFormattedTextField();
 		jftfDose = new javax.swing.JFormattedTextField();
 		jftfCondition = new javax.swing.JFormattedTextField();
 		jlMeasure = new javax.swing.JLabel();
 		leadTime = new javax.swing.JComboBox();
-		Done = new javax.swing.JButton();
 		jLabel1 = new javax.swing.JLabel();
 		MidOfNight = new javax.swing.JCheckBox();
 		allDays = new javax.swing.JCheckBox();
@@ -78,7 +90,6 @@ public class ScheduleDataEntryGUI extends javax.swing.JFrame {
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		setTitle("Treatement Schedule Creator");
-		setResizable(false);
 
 		SchedCreate.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Treatment Schedule Creator",
 				javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.ABOVE_TOP,
@@ -239,46 +250,6 @@ public class ScheduleDataEntryGUI extends javax.swing.JFrame {
 			}
 		});
 
-		Next.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-		Next.setText("  New  ");
-		Next.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-		Next.setMaximumSize(new java.awt.Dimension(51, 25));
-		Next.setMinimumSize(new java.awt.Dimension(51, 25));
-		Next.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				NextActionPerformed(evt);
-			}
-		});
-
-		Save.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-		Save.setText("  Save  ");
-		Save.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-		Save.setMaximumSize(new java.awt.Dimension(51, 25));
-		Save.setMinimumSize(new java.awt.Dimension(51, 25));
-		Save.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				SaveActionPerformed(evt);
-			}
-		});
-
-		Help.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-		Help.setText("  Help  ");
-		Help.setToolTipText("");
-		Help.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-		Help.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-		Help.setIconTextGap(5);
-		Help.setMargin(new java.awt.Insets(3, 14, 3, 14));
-		Help.setMaximumSize(new java.awt.Dimension(51, 25));
-		Help.setMinimumSize(new java.awt.Dimension(51, 25));
-		Help.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				HelpActionPerformed(evt);
-			}
-		});
-
 		jftfName.setMinimumSize(new java.awt.Dimension(4, 21));
 		jftfName.setPreferredSize(new java.awt.Dimension(4, 21));
 		jftfName.addActionListener(new java.awt.event.ActionListener() {
@@ -310,18 +281,6 @@ public class ScheduleDataEntryGUI extends javax.swing.JFrame {
 		jlMeasure.setText("  Measure  ");
 
 		leadTime.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "15", "30", "45", "60" }));
-
-		Done.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-		Done.setText("  Exit  ");
-		Done.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-		Done.setMaximumSize(new java.awt.Dimension(51, 25));
-		Done.setMinimumSize(new java.awt.Dimension(51, 25));
-		Done.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				DoneActionPerformed(evt);
-			}
-		});
 
 		jLabel1.setText("Reminder Lead Time Min's");
 
@@ -362,261 +321,185 @@ public class ScheduleDataEntryGUI extends javax.swing.JFrame {
 
 		jLabel2.setText("Additional Time-Frames");
 
+		JButton btnHelp = new JButton("Help");
+
+		JButton btnSave = new JButton("Save");
+
+		JButton btnExit = new JButton("Exit");
+
+		JButton btnNew = new JButton("New");
+
 		javax.swing.GroupLayout SchedCreateLayout = new javax.swing.GroupLayout(SchedCreate);
-		SchedCreate.setLayout(SchedCreateLayout);
-		SchedCreateLayout.setHorizontalGroup(SchedCreateLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(SchedCreateLayout.createSequentialGroup().addContainerGap().addGroup(SchedCreateLayout
-						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(SchedCreateLayout.createSequentialGroup().addGroup(SchedCreateLayout
-								.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addGroup(SchedCreateLayout.createSequentialGroup().addGroup(SchedCreateLayout
-										.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+		SchedCreateLayout
+				.setHorizontalGroup(SchedCreateLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(SchedCreateLayout.createSequentialGroup().addContainerGap()
+								.addGroup(SchedCreateLayout.createParallelGroup(Alignment.LEADING)
+										.addComponent(jSeparator1, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE,
+												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addGroup(
+										SchedCreateLayout.createSequentialGroup()
+												.addGroup(SchedCreateLayout
+														.createParallelGroup(
+																Alignment.LEADING)
+														.addGroup(
+																SchedCreateLayout
+																		.createParallelGroup(Alignment.TRAILING)
+																		.addComponent(btnHelp).addGroup(
+																				SchedCreateLayout
+																						.createSequentialGroup()
+																						.addComponent(AM)
+																						.addPreferredGap(
+																								ComponentPlacement.UNRELATED)
+																				.addComponent(MidMorn)
+																				.addPreferredGap(
+																						ComponentPlacement.UNRELATED)
+														.addComponent(Noon)
+														.addPreferredGap(ComponentPlacement.UNRELATED)
+														.addComponent(MidAft)))
+								.addComponent(jlName)
+								.addGroup(SchedCreateLayout.createParallelGroup(Alignment.TRAILING, false)
+										.addComponent(jftfName, Alignment.LEADING, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 										.addGroup(SchedCreateLayout.createSequentialGroup()
-												.addGroup(SchedCreateLayout
-														.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-														.addComponent(jlName)
-														.addGroup(SchedCreateLayout.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.TRAILING, false)
-																.addComponent(jftfName,
-																		javax.swing.GroupLayout.Alignment.LEADING,
-																		javax.swing.GroupLayout.DEFAULT_SIZE,
-																		javax.swing.GroupLayout.DEFAULT_SIZE,
-																		Short.MAX_VALUE)
-																.addGroup(SchedCreateLayout.createSequentialGroup()
-																		.addGroup(SchedCreateLayout
-																				.createParallelGroup(
-																						javax.swing.GroupLayout.Alignment.LEADING)
-																				.addComponent(jftfDose,
-																						javax.swing.GroupLayout.PREFERRED_SIZE,
-																						96,
-																						javax.swing.GroupLayout.PREFERRED_SIZE)
-																				.addGroup(SchedCreateLayout
-																						.createSequentialGroup()
-																						.addGap(29, 29, 29)
-																						.addComponent(jlDose)))
-																		.addGroup(SchedCreateLayout
-																				.createParallelGroup(
-																						javax.swing.GroupLayout.Alignment.LEADING)
-																				.addGroup(SchedCreateLayout
-																						.createSequentialGroup()
-																						.addGap(26, 26, 26)
-																						.addComponent(jlMeasure))
-																				.addGroup(SchedCreateLayout
-																						.createSequentialGroup()
-																						.addPreferredGap(
-																								javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																						.addComponent(jcbMeasure,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.PREFERRED_SIZE)))
-																		.addGroup(SchedCreateLayout
-																				.createParallelGroup(
-																						javax.swing.GroupLayout.Alignment.LEADING)
-																				.addGroup(SchedCreateLayout
-																						.createSequentialGroup()
-																						.addPreferredGap(
-																								javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																						.addComponent(jftfCondition,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								125,
-																								javax.swing.GroupLayout.PREFERRED_SIZE))
-																				.addGroup(SchedCreateLayout
-																						.createSequentialGroup()
-																						.addGap(42, 42, 42)
-																						.addComponent(jlCondition))))))
-												.addGap(0, 48, Short.MAX_VALUE))
-										.addGroup(SchedCreateLayout.createSequentialGroup().addGroup(SchedCreateLayout
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-												.addComponent(jLabel2)
-												.addGroup(SchedCreateLayout.createSequentialGroup().addGap(5, 5, 5)
-														.addComponent(OTF, javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)))
-												.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-														javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-												.addComponent(Help, javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE)))
-										.addGap(12, 12, 12)
-										.addGroup(SchedCreateLayout
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-												.addGroup(SchedCreateLayout.createSequentialGroup()
-														.addComponent(Save, javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addPreferredGap(
-																javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-														.addComponent(Done, javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addGap(18, 18, 18).addComponent(Next,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-												.addGroup(SchedCreateLayout
-														.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(SchedCreateLayout.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-																.addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-																		SchedCreateLayout.createSequentialGroup()
-																				.addComponent(leadTime,
-																						javax.swing.GroupLayout.PREFERRED_SIZE,
-																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																						javax.swing.GroupLayout.PREFERRED_SIZE)
-																				.addGap(53, 53, 53))
-																.addComponent(jLabel1,
-																		javax.swing.GroupLayout.Alignment.TRAILING))
+												.addGroup(SchedCreateLayout.createParallelGroup(Alignment.LEADING)
+														.addComponent(jftfDose, GroupLayout.PREFERRED_SIZE, 96,
+																GroupLayout.PREFERRED_SIZE)
+												.addGroup(SchedCreateLayout.createSequentialGroup().addGap(29)
+														.addComponent(jlDose)))
+												.addGroup(SchedCreateLayout.createParallelGroup(Alignment.LEADING)
+														.addGroup(SchedCreateLayout.createSequentialGroup().addGap(26)
+																.addComponent(jlMeasure))
 														.addGroup(SchedCreateLayout.createSequentialGroup()
-																.addGap(5, 5, 5).addComponent(Reminders)
-																.addGap(27, 27, 27)))))
-								.addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING))
-								.addContainerGap())
-						.addGroup(SchedCreateLayout.createSequentialGroup().addGroup(SchedCreateLayout
-								.createParallelGroup(
-										javax.swing.GroupLayout.Alignment.LEADING)
-								.addGroup(SchedCreateLayout.createSequentialGroup().addComponent(AM)
-										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-										.addComponent(MidMorn)
-										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-										.addComponent(Noon)
-										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-										.addComponent(MidAft)
-										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(Afternoon)
-										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-										.addComponent(Evening)
-										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-										.addComponent(Bedtime))
-								.addComponent(MidOfNight)
-								.addGroup(SchedCreateLayout.createSequentialGroup().addComponent(allDays)
-										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-										.addComponent(allTimes)
-										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-										.addComponent(asNeeded))
-								.addGroup(SchedCreateLayout.createSequentialGroup()
-										.addGroup(SchedCreateLayout
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+																.addPreferredGap(ComponentPlacement.UNRELATED)
+																.addComponent(jcbMeasure, GroupLayout.PREFERRED_SIZE,
+																		GroupLayout.DEFAULT_SIZE,
+																		GroupLayout.PREFERRED_SIZE)))
+												.addGroup(SchedCreateLayout.createParallelGroup(Alignment.LEADING)
+														.addGroup(SchedCreateLayout.createSequentialGroup()
+																.addPreferredGap(ComponentPlacement.UNRELATED)
+																.addComponent(jftfCondition, GroupLayout.PREFERRED_SIZE,
+																		125, GroupLayout.PREFERRED_SIZE))
+														.addGroup(SchedCreateLayout.createSequentialGroup().addGap(42)
+																.addComponent(jlCondition)))))
+								.addComponent(jLabel2)
+								.addGroup(SchedCreateLayout.createSequentialGroup().addGap(5).addComponent(OTF,
+										GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)))
+								.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addGroup(SchedCreateLayout.createParallelGroup(Alignment.LEADING)
+										.addGroup(Alignment.TRAILING,
+												SchedCreateLayout.createSequentialGroup()
+														.addComponent(leadTime, GroupLayout.PREFERRED_SIZE,
+																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+														.addGap(59))
+										.addGroup(Alignment.TRAILING, SchedCreateLayout.createSequentialGroup()
+												.addComponent(btnSave).addPreferredGap(ComponentPlacement.RELATED)
+												.addComponent(btnExit).addPreferredGap(ComponentPlacement.RELATED)
+												.addComponent(btnNew).addPreferredGap(ComponentPlacement.RELATED))
+										.addGroup(Alignment.TRAILING,
+												SchedCreateLayout.createSequentialGroup().addComponent(jLabel1)
+														.addGap(9))
+										.addGroup(Alignment.TRAILING, SchedCreateLayout.createSequentialGroup()
+												.addComponent(Afternoon).addPreferredGap(ComponentPlacement.UNRELATED)
+												.addGroup(SchedCreateLayout.createParallelGroup(Alignment.LEADING)
+														.addComponent(Reminders)
+														.addGroup(SchedCreateLayout.createSequentialGroup()
+																.addComponent(Evening)
+																.addPreferredGap(ComponentPlacement.UNRELATED)
+																.addComponent(Bedtime))))))
+						.addComponent(MidOfNight)
+						.addGroup(SchedCreateLayout.createSequentialGroup().addComponent(allDays)
+								.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(allTimes)
+								.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(asNeeded))
+						.addGroup(
+								SchedCreateLayout.createSequentialGroup()
+										.addGroup(SchedCreateLayout.createParallelGroup(Alignment.LEADING)
 												.addComponent(jlSchedType).addComponent(jcbSchedType,
-														javax.swing.GroupLayout.PREFERRED_SIZE, 100,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addGap(51, 51, 51)
-										.addGroup(SchedCreateLayout
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+														GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE))
+										.addGap(51)
+										.addGroup(SchedCreateLayout.createParallelGroup(Alignment.LEADING)
 												.addComponent(Saturday).addComponent(Monday))
-										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addGroup(
-												SchedCreateLayout
-														.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-														.addComponent(Sunday)
+										.addPreferredGap(ComponentPlacement.RELATED).addGroup(
+												SchedCreateLayout.createParallelGroup(Alignment.LEADING)
+														.addComponent(
+																Sunday)
 														.addGroup(SchedCreateLayout.createSequentialGroup()
 																.addComponent(Tuesday)
-																.addPreferredGap(
-																		javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+																.addPreferredGap(ComponentPlacement.UNRELATED)
 																.addComponent(Wednesday)
-																.addPreferredGap(
-																		javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+																.addPreferredGap(ComponentPlacement.UNRELATED)
 																.addComponent(Thursday)
-																.addPreferredGap(
-																		javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+																.addPreferredGap(ComponentPlacement.UNRELATED)
 																.addComponent(Friday)))))
-										.addGap(0, 12, Short.MAX_VALUE)))));
-		SchedCreateLayout.setVerticalGroup(SchedCreateLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(SchedCreateLayout.createSequentialGroup().addGap(21, 21, 21)
-						.addGroup(SchedCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(allTimes).addComponent(asNeeded).addComponent(allDays))
-						.addGap(20, 20, 20)
-						.addGroup(SchedCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jcbSchedType, javax.swing.GroupLayout.PREFERRED_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addGap(157)));
+		SchedCreateLayout.setVerticalGroup(SchedCreateLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(SchedCreateLayout.createSequentialGroup().addGap(21)
+						.addGroup(SchedCreateLayout.createParallelGroup(Alignment.BASELINE).addComponent(allTimes)
+								.addComponent(asNeeded).addComponent(allDays))
+						.addGap(20)
+						.addGroup(SchedCreateLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(jcbSchedType, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)
 								.addComponent(Monday).addComponent(Tuesday).addComponent(Wednesday)
 								.addComponent(Thursday).addComponent(Friday))
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addGroup(
-								SchedCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-										.addComponent(jlSchedType).addComponent(Saturday).addComponent(Sunday))
-						.addGap(20, 20, 20)
-						.addGroup(SchedCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(AM).addComponent(MidMorn).addComponent(Noon).addComponent(MidAft)
-								.addComponent(Afternoon).addComponent(Evening).addComponent(Bedtime))
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(MidOfNight)
-						.addGap(4, 4, 4)
-						.addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addGroup(SchedCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addGroup(SchedCreateLayout.createSequentialGroup().addComponent(jlName).addGap(8, 8, 8)
-										.addComponent(jftfName, javax.swing.GroupLayout.PREFERRED_SIZE, 29,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(7, 7, 7)
-										.addGroup(SchedCreateLayout
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(jlDose, javax.swing.GroupLayout.PREFERRED_SIZE, 17,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(
+								ComponentPlacement.RELATED)
+						.addGroup(SchedCreateLayout.createParallelGroup(Alignment.BASELINE).addComponent(jlSchedType)
+								.addComponent(Saturday).addComponent(Sunday))
+						.addGap(20)
+						.addGroup(SchedCreateLayout.createParallelGroup(Alignment.BASELINE).addComponent(AM)
+								.addComponent(MidMorn).addComponent(Noon).addComponent(MidAft).addComponent(Afternoon)
+								.addComponent(Evening).addComponent(Bedtime))
+						.addPreferredGap(ComponentPlacement.RELATED).addComponent(MidOfNight).addGap(4)
+						.addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, 10, GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(ComponentPlacement.RELATED).addComponent(jlName).addGap(8)
+						.addGroup(SchedCreateLayout.createParallelGroup(Alignment.LEADING)
+								.addGroup(SchedCreateLayout.createSequentialGroup()
+										.addComponent(jftfName, GroupLayout.PREFERRED_SIZE, 29,
+												GroupLayout.PREFERRED_SIZE)
+										.addGap(7)
+										.addGroup(SchedCreateLayout.createParallelGroup(Alignment.BASELINE)
+												.addComponent(jlDose, GroupLayout.PREFERRED_SIZE, 17,
+														GroupLayout.PREFERRED_SIZE)
 												.addComponent(jlCondition).addComponent(jlMeasure))
-										.addGroup(SchedCreateLayout
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(jftfDose, javax.swing.GroupLayout.PREFERRED_SIZE, 26,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addComponent(jftfCondition, javax.swing.GroupLayout.PREFERRED_SIZE, 27,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addComponent(jcbMeasure, javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20,
-												Short.MAX_VALUE)
-										.addGroup(SchedCreateLayout
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-												.addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-														SchedCreateLayout.createSequentialGroup().addComponent(jLabel2)
-																.addPreferredGap(
-																		javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																.addComponent(OTF,
-																		javax.swing.GroupLayout.PREFERRED_SIZE,
-																		javax.swing.GroupLayout.DEFAULT_SIZE,
-																		javax.swing.GroupLayout.PREFERRED_SIZE))
-												.addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-														SchedCreateLayout.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING, false)
-														.addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-																SchedCreateLayout
-																		.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.BASELINE)
-																		.addComponent(Save,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				33, Short.MAX_VALUE)
-																		.addComponent(Help,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				33, Short.MAX_VALUE))
-														.addComponent(Next, javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-														.addComponent(Done, javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																Short.MAX_VALUE))))
-								.addGroup(SchedCreateLayout.createSequentialGroup().addComponent(Reminders)
-										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-										.addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(5, 5, 5)
-										.addComponent(leadTime, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(0, 0, Short.MAX_VALUE)))
+										.addGroup(SchedCreateLayout.createParallelGroup(Alignment.BASELINE)
+												.addComponent(jftfDose, GroupLayout.PREFERRED_SIZE, 26,
+														GroupLayout.PREFERRED_SIZE)
+												.addComponent(jftfCondition, GroupLayout.PREFERRED_SIZE, 27,
+														GroupLayout.PREFERRED_SIZE)
+												.addComponent(jcbMeasure, GroupLayout.PREFERRED_SIZE,
+														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+										.addPreferredGap(ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+										.addComponent(jLabel2))
+								.addGroup(SchedCreateLayout.createSequentialGroup().addGap(8).addComponent(Reminders)
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addComponent(jLabel1, GroupLayout.PREFERRED_SIZE, 22,
+												GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(leadTime,
+												GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)))
+						.addGap(18)
+						.addGroup(SchedCreateLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(OTF, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnHelp).addComponent(btnSave).addComponent(btnExit).addComponent(btnNew))
 						.addContainerGap()));
+		SchedCreate.setLayout(SchedCreateLayout);
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(layout.createSequentialGroup().addContainerGap().addComponent(SchedCreate,
-						javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+		layout.setHorizontalGroup(layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup().addGap(26)
+						.addComponent(SchedCreate, GroupLayout.PREFERRED_SIZE, 649, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(25, Short.MAX_VALUE)));
+		layout.setVerticalGroup(layout.createParallelGroup(Alignment.LEADING).addGroup(Alignment.TRAILING,
+				layout.createSequentialGroup().addContainerGap(14, Short.MAX_VALUE).addComponent(SchedCreate,
+						GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 				.addContainerGap()));
-		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(layout.createSequentialGroup().addGap(14, 14, 14)
-						.addComponent(SchedCreate, javax.swing.GroupLayout.PREFERRED_SIZE,
-								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-				.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+		layout.setHonorsVisibility(false);
+		getContentPane().setLayout(layout);
 
 		pack();
+		initDataBindings();
 	}// </editor-fold>//GEN-END:initComponents
 
 	private void RemindersActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_RemindersActionPerformed
@@ -678,41 +561,6 @@ public class ScheduleDataEntryGUI extends javax.swing.JFrame {
 	private void BedtimeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BedtimeActionPerformed
 		// TODO add your handling code here:
 	}// GEN-LAST:event_BedtimeActionPerformed
-
-	private void HelpActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_HelpActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_HelpActionPerformed
-
-	private void SaveActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_SaveActionPerformed
-		// TODO add your handling code here:
-		/*
-		 * This is the main code for the entire GUI For each schedule we will
-		 * use an instance of the Treatment class to assign all values via
-		 * listeners. Once the user presses Save or New the state of the
-		 * instance will be pulled and used to construct a sql command. Once the
-		 * command has been sent the object will be destroyed and another
-		 * created.
-		 *
-		 * INSERT INTO example:
-		 *
-		 * INSERT INTO treatments (uuid, `type`, `name`, dose, measure,
-		 * reminder, monday, tuesday, wednesday, thursday, friday, saturday,
-		 * sunday, am, midam, noon, midaft, afternoon, evening, bedtime,
-		 * midofnight, allDays, allTimes, asNecessary, leadTime) VALUES (102,
-		 * 'pill', 'linsinopril', 20.0, 'milligrams', 1, 1, 1, 1, 1, 1, 1, 1, 1,
-		 * 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 00)
-		 *
-		 *
-		 */
-	}// GEN-LAST:event_SaveActionPerformed
-
-	private void DoneActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_DoneActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_DoneActionPerformed
-
-	private void NextActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_NextActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_NextActionPerformed
 
 	private void jftfNameActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jftfNameActionPerformed
 		// TODO add your handling code here:
@@ -886,20 +734,16 @@ public class ScheduleDataEntryGUI extends javax.swing.JFrame {
 	private javax.swing.JCheckBox AM;
 	private javax.swing.JCheckBox Afternoon;
 	private javax.swing.JCheckBox Bedtime;
-	private javax.swing.JButton Done;
 	private javax.swing.JCheckBox Evening;
 	private javax.swing.JCheckBox Friday;
-	private javax.swing.JButton Help;
 	private javax.swing.JCheckBox MidAft;
 	private javax.swing.JCheckBox MidMorn;
 	private javax.swing.JCheckBox MidOfNight;
 	private javax.swing.JCheckBox Monday;
-	private javax.swing.JButton Next;
 	private javax.swing.JCheckBox Noon;
 	private javax.swing.JComboBox OTF;
 	private javax.swing.JCheckBox Reminders;
 	private javax.swing.JCheckBox Saturday;
-	private javax.swing.JButton Save;
 	private javax.swing.JPanel SchedCreate;
 	private javax.swing.JCheckBox Sunday;
 	private javax.swing.JCheckBox Thursday;
@@ -930,5 +774,15 @@ public class ScheduleDataEntryGUI extends javax.swing.JFrame {
 
 	public void setSchedDataEntry(ScheduleDataEntryGUI sde) {
 		this.SchedDataEntryGUI = sde;
+	}
+
+	protected void initDataBindings() {
+		BeanProperty<ScheduleDataEntryGUI, Double> scheduleDataEntryGUIBeanProperty = BeanProperty
+				.create("size.size.width");
+		BeanProperty<JPanel, Integer> jPanelBeanProperty = BeanProperty.create("width");
+		AutoBinding<ScheduleDataEntryGUI, Double, JPanel, Integer> autoBinding = Bindings.createAutoBinding(
+				UpdateStrategy.READ, SchedDataEntryGUI, scheduleDataEntryGUIBeanProperty, SchedCreate,
+				jPanelBeanProperty);
+		autoBinding.bind();
 	}
 }

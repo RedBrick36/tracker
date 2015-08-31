@@ -6,6 +6,10 @@
 package org.redbrick.medright.tracker.ui;
 
 import javax.swing.*;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.Dimension;
+import java.awt.Rectangle;
 
 /**
  *
@@ -19,6 +23,12 @@ public class SetUserTimesGUI extends javax.swing.JFrame {
 	 * Creates new form UserTimes
 	 */
 	public SetUserTimesGUI() {
+		setPreferredSize(new Dimension(325, 384));
+		setMinimumSize(new Dimension(320, 384));
+		setMaximumSize(new Dimension(320, 384));
+		setBounds(new Rectangle(0, 23, 325, 384));
+		setSize(new Dimension(320, 384));
+		setResizable(false);
 		this.initComponents();
 	}
 
@@ -58,14 +68,11 @@ public class SetUserTimesGUI extends javax.swing.JFrame {
 		jLabel8 = new javax.swing.JLabel();
 		MidOfNightHour = new javax.swing.JComboBox();
 		MidOfNightMins = new javax.swing.JComboBox();
-		jButton1 = new javax.swing.JButton();
-		jButton2 = new javax.swing.JButton();
-		jButton3 = new javax.swing.JButton();
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
 		jLabel9.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-		jLabel9.setText("Change Event Time Defaults");
+		jLabel9.setText("Set Event Time Defaults");
 
 		AMHour.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "...", "1", "2", "3", "4", "5", "6", "7",
 				"8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "00" }));
@@ -134,212 +141,146 @@ public class SetUserTimesGUI extends javax.swing.JFrame {
 
 		MidOfNightMins.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "...", "00", "15", "30", "45" }));
 
-		jButton1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-		jButton1.setText("  Save  ");
-		jButton1.setBorder(
-				javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(),
-						javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED)));
-		jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+		btnHelp = new JButton("Help");
 
-		jButton2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-		jButton2.setText("  Exit    ");
-		jButton2.setBorder(
-				javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(),
-						javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED)));
-		jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+		btnSave = new JButton("Save");
 
-		jButton3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-		jButton3.setText("  Help    ");
-		jButton3.setBorder(
-				javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(),
-						javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED)));
-		jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+		btnExit = new JButton("Exit");
 
 		javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-		jPanel1.setLayout(jPanel1Layout);
 		jPanel1Layout
-				.setHorizontalGroup(
-						jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addGroup(
-										jPanel1Layout.createSequentialGroup().addGap(30, 30, 30)
-												.addGroup(jPanel1Layout
-														.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-																false)
-														.addComponent(jLabel9)
-														.addGroup(jPanel1Layout.createSequentialGroup()
-																.addGroup(jPanel1Layout
-																		.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.TRAILING)
-																		.addComponent(jLabel1).addComponent(jLabel2)
-																		.addComponent(jLabel3).addComponent(jLabel4)
-																		.addComponent(jLabel5).addComponent(jLabel6)
-																		.addComponent(jLabel7).addComponent(jLabel8))
-														.addPreferredGap(
-																javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(MidOfNightHour, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(BedtimeHour, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(EveningHour, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(AfternoonHour, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(MidAftHour, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(NoonHour, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(MidAMHour, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(AMHour, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addGap(18, 18, 18)
-								.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(MidOfNightMins, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(BedtimeMins, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(EveningMins, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(AfternoonMins, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(MidAftMins, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(NoonMins, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(MidAMMins, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(AMMins, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)).addGap(11, 11, 11)).addGroup(
-														jPanel1Layout.createSequentialGroup().addComponent(jButton3)
-																.addGap(30, 30, 30).addComponent(jButton1)
-																.addPreferredGap(
-																		javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(jButton2))).addContainerGap(34, Short.MAX_VALUE)));
-		jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel1Layout.createSequentialGroup().addContainerGap().addComponent(jLabel9)
-						.addGap(18, 18, 18)
-						.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-								.addGroup(jPanel1Layout.createSequentialGroup()
-										.addGroup(jPanel1Layout
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(AMHour, javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addComponent(jLabel1))
-										.addGap(5, 5, 5)
-										.addGroup(jPanel1Layout
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(MidAMHour, javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addComponent(jLabel2))
-										.addGap(5, 5, 5)
-										.addGroup(jPanel1Layout
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(NoonHour, javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addComponent(jLabel3))
-										.addGap(5, 5, 5)
-										.addGroup(jPanel1Layout
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(MidAftHour, javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addComponent(jLabel4))
-										.addGap(5, 5, 5)
-										.addGroup(jPanel1Layout
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(AfternoonHour, javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addComponent(jLabel5))
-										.addGap(5, 5, 5)
-										.addGroup(jPanel1Layout
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(EveningHour, javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addComponent(jLabel6))
-										.addGap(5, 5, 5)
-										.addGroup(jPanel1Layout
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(BedtimeHour, javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addComponent(jLabel7))
-										.addGap(5, 5, 5)
-										.addGroup(jPanel1Layout
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(MidOfNightHour, javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addComponent(jLabel8)))
-								.addGroup(jPanel1Layout.createSequentialGroup()
-										.addComponent(AMMins, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(5, 5, 5)
-										.addComponent(MidAMMins, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(5, 5, 5)
-										.addComponent(NoonMins, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(5, 5, 5)
-										.addComponent(MidAftMins, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(5, 5, 5)
-										.addComponent(AfternoonMins, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(5, 5, 5)
-										.addComponent(EveningMins, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(5, 5, 5)
-										.addComponent(BedtimeMins, javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(5, 5, 5).addComponent(MidOfNightMins,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)))
-						.addGap(18, 18, 18)
-						.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jButton2).addComponent(jButton1).addComponent(jButton3))
-						.addContainerGap(18, Short.MAX_VALUE)));
+				.setHorizontalGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+						.addGroup(jPanel1Layout.createSequentialGroup()
+								.addGroup(jPanel1Layout
+										.createParallelGroup(
+												Alignment.LEADING)
+										.addGroup(jPanel1Layout.createSequentialGroup().addGap(30)
+												.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
+														.addComponent(jLabel1).addComponent(jLabel2)
+														.addComponent(jLabel3).addComponent(jLabel4)
+														.addComponent(jLabel5).addComponent(jLabel6)
+														.addComponent(jLabel7).addComponent(jLabel8))
+								.addPreferredGap(ComponentPlacement.UNRELATED)
+								.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+										.addComponent(MidOfNightHour, GroupLayout.PREFERRED_SIZE,
+												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(BedtimeHour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(EveningHour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(AfternoonHour, GroupLayout.PREFERRED_SIZE,
+												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(MidAftHour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(NoonHour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(MidAMHour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(AMHour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE))
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+										.addComponent(MidOfNightMins, GroupLayout.PREFERRED_SIZE,
+												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(BedtimeMins, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(EveningMins, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(AfternoonMins, GroupLayout.PREFERRED_SIZE,
+												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(MidAftMins, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(NoonMins, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(MidAMMins, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(AMMins, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)).addGap(172))
+						.addGroup(jPanel1Layout.createSequentialGroup().addGap(58).addComponent(btnHelp)
+								.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(btnSave)
+								.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(btnExit))
+						.addGroup(jPanel1Layout.createSequentialGroup().addGap(55).addComponent(jLabel9)))
+				.addContainerGap(166, Short.MAX_VALUE)));
+		jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING).addGroup(jPanel1Layout
+				.createSequentialGroup().addContainerGap().addComponent(jLabel9).addGap(18)
+				.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
+						.addGroup(jPanel1Layout.createSequentialGroup()
+								.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+										.addComponent(AMHour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(jLabel1))
+								.addGap(5)
+								.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+										.addComponent(MidAMHour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(jLabel2))
+								.addGap(5)
+								.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+										.addComponent(NoonHour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(jLabel3))
+								.addGap(5)
+								.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+										.addComponent(MidAftHour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(jLabel4))
+								.addGap(5)
+								.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+										.addComponent(AfternoonHour, GroupLayout.PREFERRED_SIZE,
+												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(jLabel5))
+								.addGap(5)
+								.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+										.addComponent(EveningHour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(jLabel6))
+								.addGap(5)
+								.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+										.addComponent(BedtimeHour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(jLabel7))
+								.addGap(5)
+								.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+										.addComponent(MidOfNightHour, GroupLayout.PREFERRED_SIZE,
+												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(jLabel8)))
+						.addGroup(jPanel1Layout.createSequentialGroup()
+								.addComponent(AMMins, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)
+								.addGap(5)
+								.addComponent(MidAMMins, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)
+								.addGap(5)
+								.addComponent(NoonMins, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)
+								.addGap(5)
+								.addComponent(MidAftMins, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)
+								.addGap(5)
+								.addComponent(AfternoonMins, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)
+								.addGap(5)
+								.addComponent(EveningMins, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)
+								.addGap(5)
+								.addComponent(BedtimeMins, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)
+								.addGap(5).addComponent(MidOfNightMins, GroupLayout.PREFERRED_SIZE,
+										GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+				.addGap(18).addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE).addComponent(btnHelp)
+						.addComponent(btnSave).addComponent(btnExit))
+				.addContainerGap(18, Short.MAX_VALUE)));
+		jPanel1.setLayout(jPanel1Layout);
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				javax.swing.GroupLayout.Alignment.TRAILING,
-				layout.createSequentialGroup().addContainerGap().addComponent(jPanel1,
-						javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+		layout.setHorizontalGroup(
+				layout.createParallelGroup(Alignment.LEADING).addGroup(layout.createSequentialGroup().addContainerGap()
+						.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 301, Short.MAX_VALUE).addContainerGap()));
+		layout.setVerticalGroup(layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup().addContainerGap()
+						.addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 						.addContainerGap()));
-		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(layout.createSequentialGroup().addContainerGap().addComponent(jPanel1,
-						javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-				.addContainerGap()));
+		getContentPane().setLayout(layout);
 
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
@@ -416,9 +357,6 @@ public class SetUserTimesGUI extends javax.swing.JFrame {
 	private javax.swing.JComboBox MidOfNightMins;
 	private javax.swing.JComboBox NoonHour;
 	private javax.swing.JComboBox NoonMins;
-	private javax.swing.JButton jButton1;
-	private javax.swing.JButton jButton2;
-	private javax.swing.JButton jButton3;
 	private javax.swing.JLabel jLabel1;
 	private javax.swing.JLabel jLabel2;
 	private javax.swing.JLabel jLabel3;
@@ -429,5 +367,8 @@ public class SetUserTimesGUI extends javax.swing.JFrame {
 	private javax.swing.JLabel jLabel8;
 	private javax.swing.JLabel jLabel9;
 	private javax.swing.JPanel jPanel1;
+	private JButton btnHelp;
+	private JButton btnSave;
+	private JButton btnExit;
 	// End of variables declaration//GEN-END:variables
 }

@@ -12,6 +12,8 @@ import java.awt.event.*;
 import java.sql.*;
 import java.util.logging.*;
 import javax.swing.*;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 /**
  *
@@ -55,12 +57,10 @@ public class SecurityCheck extends javax.swing.JFrame {
 	private void initComponents() {
 
 		jPasswordField = new javax.swing.JPasswordField();
-		btnSubmit = new javax.swing.JButton();
 		Password = new javax.swing.JLabel();
 		jTextFieldUserName = new javax.swing.JTextField();
 		jLabel1 = new javax.swing.JLabel();
 		UserName = new javax.swing.JLabel();
-		menuBar = new javax.swing.JMenuBar();
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		setAlwaysOnTop(true);
@@ -82,23 +82,6 @@ public class SecurityCheck extends javax.swing.JFrame {
 			}
 		});
 
-		btnSubmit.setText("Submit");
-		btnSubmit.setBorder(javax.swing.BorderFactory.createCompoundBorder(
-				javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)),
-				javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED)));
-		btnSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
-			@Override
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				btnSubmitMouseClicked(evt);
-			}
-		});
-		btnSubmit.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				btnSubmitActionPerformed(evt);
-			}
-		});
-
 		Password.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
 		Password.setText("Password");
 
@@ -116,50 +99,47 @@ public class SecurityCheck extends javax.swing.JFrame {
 		UserName.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
 		UserName.setText("UserName");
 
-		menuBar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login",
-				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
-				new java.awt.Font("Dialog", 1, 18))); // NOI18N
-		setJMenuBar(menuBar);
+		btnSubmit = new JButton("Submit");
+		btnSubmit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
+		btnSubmit.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				btnNewSubmitActionPerformed(e);
+			}
+		});
 
-		org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
-		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING).add(layout
-				.createSequentialGroup().add(48, 48, 48)
-				.add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-						.add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-								.add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-										.add(btnSubmit, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68,
-												org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-										.add(108, 108, 108))
-								.add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel1))
-						.add(layout.createSequentialGroup().add(32, 32, 32)
-								.add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING).add(UserName)
-										.add(Password))
-								.add(18, 18, 18)
-								.add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-										.add(jTextFieldUserName)
-										.add(jPasswordField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 120,
-												org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-								.add(58, 58, 58)))
+		GroupLayout layout = new GroupLayout(getContentPane());
+		layout.setHorizontalGroup(layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup().addGap(48)
+						.addGroup(layout.createParallelGroup(Alignment.LEADING).addComponent(jLabel1)
+								.addGroup(layout.createSequentialGroup().addGap(32)
+										.addGroup(layout.createParallelGroup(Alignment.TRAILING).addComponent(UserName)
+												.addComponent(Password))
+						.addGap(18)
+						.addGroup(layout.createParallelGroup(Alignment.LEADING, false).addComponent(jTextFieldUserName)
+								.addComponent(jPasswordField, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 120,
+										Short.MAX_VALUE)
+								.addComponent(btnSubmit, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
 				.addContainerGap(48, Short.MAX_VALUE)));
-		layout.setVerticalGroup(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-				.add(layout.createSequentialGroup().add(16, 16, 16).add(jLabel1).add(25, 25, 25)
-						.add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-								.add(jTextFieldUserName, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
-										org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-										org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-								.add(UserName, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30,
-										org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-				.addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-				.add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-						.add(jPasswordField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
-								org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-								org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-						.add(Password, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30,
-								org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-						.add(18, 18, 18).add(btnSubmit, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 28,
-								org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(16, Short.MAX_VALUE)));
+		layout.setVerticalGroup(layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup().addGap(16).addComponent(jLabel1).addGap(25)
+						.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(jTextFieldUserName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)
+						.addComponent(UserName, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+				.addPreferredGap(ComponentPlacement.UNRELATED)
+				.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(jPasswordField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
+						.addComponent(Password, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+				.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(btnSubmit)
+				.addContainerGap(22, Short.MAX_VALUE)));
+		getContentPane().setLayout(layout);
 
 		getAccessibleContext().setAccessibleName("secCheckFrame");
 		getAccessibleContext().setAccessibleDescription("");
@@ -167,20 +147,7 @@ public class SecurityCheck extends javax.swing.JFrame {
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
 
-	private void btnSubmitMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btnSubmitMouseClicked
-
-	}// GEN-LAST:event_btnSubmitMouseClicked
-
-	private void jTextFieldUserNameActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTextFieldUserNameActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_jTextFieldUserNameActionPerformed
-
-	private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jPasswordFieldActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_jPasswordFieldActionPerformed
-
-	private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSubmitActionPerformed
-
+	protected void btnNewSubmitActionPerformed(ActionEvent e) {
 		try {
 			this.secCheck = "login";
 			this.conn = connectToDB(this.secCheck);
@@ -207,7 +174,16 @@ public class SecurityCheck extends javax.swing.JFrame {
 			Logger.getLogger(SecurityCheck.class.getName()).log(Level.SEVERE, null, ex);
 
 		}
-	}// GEN-LAST:event_btnSubmitActionPerformed
+
+	}
+
+	private void jTextFieldUserNameActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTextFieldUserNameActionPerformed
+		// TODO add your handling code here:
+	}// GEN-LAST:event_jTextFieldUserNameActionPerformed
+
+	private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jPasswordFieldActionPerformed
+		// TODO add your handling code here:
+	}// GEN-LAST:event_jPasswordFieldActionPerformed
 
 	private void formPropertyChange(java.beans.PropertyChangeEvent evt) {// GEN-FIRST:event_formPropertyChange
 		// TODO add your handling code here:
@@ -265,10 +241,9 @@ public class SecurityCheck extends javax.swing.JFrame {
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	javax.swing.JLabel Password;
 	javax.swing.JLabel UserName;
-	javax.swing.JButton btnSubmit;
 	javax.swing.JLabel jLabel1;
 	javax.swing.JPasswordField jPasswordField;
 	javax.swing.JTextField jTextFieldUserName;
-	javax.swing.JMenuBar menuBar;
+	private JButton btnSubmit;
 	// End of variables declaration//GEN-END:variables
 }

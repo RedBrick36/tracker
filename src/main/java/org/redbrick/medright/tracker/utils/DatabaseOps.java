@@ -145,7 +145,7 @@ public class DatabaseOps {
 		} else {
 			whichDatabase = 2;
 		}
-
+		// FIXME Change db locations
 		switch (whichDatabase) {
 		case 1:
 			whichDB = "jdbc:derby:/Users/RedBrick/NetBeansProjects/MedRight/login;create=true;user=root;password=root";
