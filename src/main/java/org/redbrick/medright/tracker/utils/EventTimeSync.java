@@ -1,4 +1,4 @@
-package org.redbrick.medright.tracker.misc;
+package org.redbrick.medright.tracker.utils;
 
 import java.awt.*;
 import java.time.*;

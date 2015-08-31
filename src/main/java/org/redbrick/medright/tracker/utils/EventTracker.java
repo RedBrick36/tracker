@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.redbrick.medright.tracker.misc;
+package org.redbrick.medright.tracker.utils;
 
 /**
  * Class to keep track of the various schedules created by the user and dole out
