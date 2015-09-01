@@ -145,13 +145,13 @@ public class DatabaseOps {
 		} else {
 			whichDatabase = 2;
 		}
-		// FIXME Change db locations
+
 		switch (whichDatabase) {
 		case 1:
-			whichDB = "jdbc:derby:/Users/RedBrick/NetBeansProjects/MedRight/login;create=true;user=root;password=root";
+			whichDB = "jdbc:derby:/Users/RedBrick/Eclipse/MedRightTreatmentTracker/tracker/MyDB;create=true";
 			break;
 		case 2:
-			whichDB = "jdbc:derby:/Users/RedBrick/NetBeansProjects/MedRight/treatments;create=true;user=app;password=root";
+			whichDB = "jdbc:derby:/Users/RedBrick/Eclipse/MedRightTreatmentTracker/tracker/scheduleDB;create=true;user=APP;password=APP";
 			break;
 		}
 		// try {
@@ -200,13 +200,13 @@ public class DatabaseOps {
 			throws SQLException, InstantiationException, ClassNotFoundException, IllegalAccessException {
 		try {
 			md = con.getMetaData();
-			rs = md.getTables(null, "APPS", "TREATMENTS", null);
+			rs = md.getTables(null, "APP", "TREATMENTS", null);
 			if (!rs.next()) {
 				System.out.println("Table already exists -- skipping creation of TREATMENTS table     ");
 			} else {
 				System.out.println("Table does not already exist. Creating it now.     ");
 				cs = con.prepareCall("CREATE TABLE TREATMENTS (uuid INTEGER default 0 primary key, type VARCHAR(10),"
-						+ " name VARCHAR(40), this.condition VARCHAR(45), dose DOUBLE default 0, measure VARCHAR(11),"
+						+ " name VARCHAR(40), condition VARCHAR(45), dose DOUBLE default 0, measure VARCHAR(11),"
 						+ " reminder BOOLEAN default false, monday BOOLEAN default false, tuesday BOOLEAN default false,"
 						+ " wednesday BOOLEAN default false, thursday BOOLEAN default false, friday BOOLEAN default false,"
 						+ " saturday BOOLEAN default false, sunday BOOLEAN default false, am BOOLEAN default false,"
@@ -317,10 +317,10 @@ public class DatabaseOps {
 	public static boolean runDbaseChecks(Connection con) throws SQLException {
 
 		try {
-			checkDB = con.prepareCall("VALUES SYSCS_UTIL.SYSCS_CHECK_TABLE('APP', 'TREATMENTS')");
+			checkDB = con.prepareCall("VALUES SYSCS_UTIL.SYSCS_CHECK_TABLE('APP', 'USERS')");
 			checkDB.execute();
 			checkDB.close();
-			System.out.println("Table Treatements checked Successfully.");
+			System.out.println("Table Users checked Successfully.");
 		} catch (SQLException err) {
 			System.out.println("SQL Error: " + err.getMessage());
 		}

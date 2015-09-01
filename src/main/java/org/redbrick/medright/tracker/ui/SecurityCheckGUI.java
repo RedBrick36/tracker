@@ -19,7 +19,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
  *
  * @author RedBrick
  */
-public class SecurityCheck extends javax.swing.JFrame {
+public class SecurityCheckGUI extends javax.swing.JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private Connection conn;
@@ -28,14 +28,14 @@ public class SecurityCheck extends javax.swing.JFrame {
 	private String secCheck;
 
 	/**
-	 * Creates new form SecurityCheck
+	 * Creates new form SecurityCheckGUI
 	 *
 	 * @throws java.lang.ClassNotFoundException
 	 * @throws java.lang.InstantiationException
 	 * @throws java.lang.IllegalAccessException
 	 * @throws java.sql.SQLException
 	 */
-	public SecurityCheck() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+	public SecurityCheckGUI() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 		this.initComponents();
 
 	}
@@ -171,7 +171,7 @@ public class SecurityCheck extends javax.swing.JFrame {
 						JOptionPane.ERROR_MESSAGE);
 			}
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException ex) {
-			Logger.getLogger(SecurityCheck.class.getName()).log(Level.SEVERE, null, ex);
+			Logger.getLogger(SecurityCheckGUI.class.getName()).log(Level.SEVERE, null, ex);
 
 		}
 
@@ -215,7 +215,7 @@ public class SecurityCheck extends javax.swing.JFrame {
 			}
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
 				| javax.swing.UnsupportedLookAndFeelException ex) {
-			java.util.logging.Logger.getLogger(SecurityCheck.class.getName()).log(java.util.logging.Level.SEVERE, null,
+			java.util.logging.Logger.getLogger(SecurityCheckGUI.class.getName()).log(java.util.logging.Level.SEVERE, null,
 					ex);
 		}
 		// </editor-fold>
@@ -229,10 +229,10 @@ public class SecurityCheck extends javax.swing.JFrame {
 			@Override
 			public void run() {
 				try {
-					new SecurityCheck().setVisible(true);
+					new SecurityCheckGUI().setVisible(true);
 
 				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException ex) {
-					Logger.getLogger(SecurityCheck.class.getName()).log(Level.SEVERE, null, ex);
+					Logger.getLogger(SecurityCheckGUI.class.getName()).log(Level.SEVERE, null, ex);
 				}
 			}
 		});
